@@ -27,6 +27,15 @@
           <emissive>0.01 0.08 0.01 1</emissive>
         </material>
       </visual>
+      <!-- Visual only: no joint/collision forces are applied to the aircraft. -->
+      <visual name="deumeu_seeder_arm">
+        <pose>0.07 0 -0.015 0 0 0</pose>
+        <geometry><box><size>0.16 0.025 0.02</size></box></geometry>
+        <material>
+          <ambient>1 0.4 0.02 1</ambient>
+          <diffuse>1 0.4 0.02 1</diffuse>
+        </material>
+      </visual>
     </link>
     <joint name="deumeu_seeder_visual_joint" type="fixed">
       <parent>base_link</parent>
@@ -98,8 +107,6 @@
     </plugin>
     <plugin filename="libSeederVisualSystem.so" name="custom::SeederVisualSystem">
       <link_name>base_link</link_name>
-      <command_sub_topic>servo_0</command_sub_topic>
-      <trigger_threshold>0</trigger_threshold>
       <release_offset>0 0 -0.19</release_offset>
       <ball_radius>0.055</ball_radius>
       <ball_mass>0.025</ball_mass>
